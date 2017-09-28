@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+
 # don't think these will be used
   def new
   end
