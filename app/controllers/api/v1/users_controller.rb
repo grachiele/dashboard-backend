@@ -26,6 +26,10 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
+  def index
+    # request.headers["Authorization"] -----> decode
+  end
+
 
   private
 
