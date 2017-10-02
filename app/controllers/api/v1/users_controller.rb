@@ -9,7 +9,11 @@ class Api::V1::UsersController < ApplicationController
 
 # signup
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    if @user.save
+      token = encode_token({ user_id: @user.id})
+      render json: { user: @user, jwt: token}
+    end
   end
 
 # edit preferences
