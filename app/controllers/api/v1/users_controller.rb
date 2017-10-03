@@ -18,6 +18,10 @@ class Api::V1::UsersController < ApplicationController
 
 # edit preferences
   def update
+    @user = current_user
+    @user.update(user_params)
+    # might have to have an if for validation
+    render json: @user
   end
 
 # delete account
